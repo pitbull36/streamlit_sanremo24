@@ -13,9 +13,9 @@ import numpy as np
 
 # NLP libraries
 import nltk
+nltk.download('all')
 from nltk.corpus import stopwords
 from nltk.util import ngrams
-nltk.download('stopwords')
 italian_stopwords = stopwords.words('italian')
 english_stopwords = stopwords.words('english')
 from PIL import Image
