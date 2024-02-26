@@ -240,53 +240,51 @@ with col3:
 
 with col4:
 
-    # st.markdown("#### Sentiment Analysis - this might take a while")  
-    # st.write('Angry icons created by Eucalyp - [Flaticons](https://www.flaticon.com/free-icons/angry)')
+    st.markdown("#### Sentiment Analysis - this might take a while")  
+    st.write('Angry icons created by Eucalyp - [Flaticons](https://www.flaticon.com/free-icons/angry)')
 
-    # query = df.loc[(df["singer"] == singer_filter) & (df["lang"] == "it")]["comment"]
-    # results, polarities = calculate_polarity(query)
-    # emo_res = pd.DataFrame(polarities, columns=['pos', 'neg'])
+    query = df.loc[(df["singer"] == singer_filter) & (df["lang"] == "it")]["comment"]
+    results, polarities = calculate_polarity(query)
+    emo_res = pd.DataFrame(polarities, columns=['pos', 'neg'])
 
-    # # check the overall mood and select the correct image
-    # mood = emo_res["pos"].mean() - emo_res["neg"].mean()                
-    # mood_name = chooseMood(mood)
-    # im = Image.open(f'./emoji/{mood_name}.png')
-    # im.thumbnail((150, 150))
+    # check the overall mood and select the correct image
+    mood = emo_res["pos"].mean() - emo_res["neg"].mean()                
+    mood_name = chooseMood(mood)
+    im = Image.open(f'./emoji/{mood_name}.png')
+    im.thumbnail((150, 150))
 
-    # # Convert relative positions to figure coordinates
-    # fig = plt.gcf()
-    # ax = plt.gca()
-    # x_fig, y_fig = ax.transAxes.transform([1.65, 1.65])
+    # Convert relative positions to figure coordinates
+    fig = plt.gcf()
+    ax = plt.gca()
+    x_fig, y_fig = ax.transAxes.transform([1.65, 1.65])
 
 
-    # sns.barplot(emo_res, palette=["#77DD77", "#FF6961"])
-    # plt.title(f"Overall comments' mood for {df['singer'].iloc[0]}");
-    # plt.xlabel("Valence")
-    # plt.ylabel("Sentiment strength")
-    # plt.ylim(0,1)
-    # # plt.figimage(im, xo=460, yo=330)
-    # plt.figimage(im, x_fig, y_fig)
-    # st.pyplot(plt.gcf(), clear_figure=True)
-    pass
-
+    sns.barplot(emo_res, palette=["#77DD77", "#FF6961"])
+    plt.title(f"Overall comments' mood for {df['singer'].iloc[0]}");
+    plt.xlabel("Valence")
+    plt.ylabel("Sentiment strength")
+    plt.ylim(0,1)
+    # plt.figimage(im, xo=460, yo=330)
+    plt.figimage(im, x_fig, y_fig)
+    st.pyplot(plt.gcf(), clear_figure=True)
 
 ##################################
 
-st.markdown("#### Short summary - this might take a while")  
+# st.markdown("#### Short summary - this might take a while")  
 
-# Load the summarization pipeline
-summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+# # Load the summarization pipeline
+# summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 
-# Example text to summarize
-text = " ".join(review for review in df[df["singer"]==singer_filter]["comment"])
+# # Example text to summarize
+# text = " ".join(review for review in df[df["singer"]==singer_filter]["comment"])
 
-# Truncate the input text to the maximum supported length
-max_input_length = summarizer.model.config.max_position_embeddings
-truncated_text = text[:max_input_length]
+# # Truncate the input text to the maximum supported length
+# max_input_length = summarizer.model.config.max_position_embeddings
+# truncated_text = text[:max_input_length]
 
-# Summarize the text
-summary = summarizer(truncated_text, max_length=150, min_length=50, do_sample=False)
+# # Summarize the text
+# summary = summarizer(truncated_text, max_length=150, min_length=50, do_sample=False)
 
-# Print the summary
-st.write(summary[0]['summary_text'])
+# # Print the summary
+# st.write(summary[0]['summary_text'])
     
