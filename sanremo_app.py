@@ -273,21 +273,21 @@ with col4:
 
 ##################################
 
-# st.markdown("#### Short summary - this might take a while")  
+st.markdown("#### Short summary - this might take a while")  
 
-# # Load the summarization pipeline
-# summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+# Load the summarization pipeline
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 
-# # Example text to summarize
-# text = " ".join(review for review in df[df["singer"]==singer_filter]["comment"])
+# Example text to summarize
+text = " ".join(review for review in df[df["singer"]==singer_filter]["comment"])
 
-# # Truncate the input text to the maximum supported length
-# max_input_length = summarizer.model.config.max_position_embeddings
-# truncated_text = text[:max_input_length]
+# Truncate the input text to the maximum supported length
+max_input_length = summarizer.model.config.max_position_embeddings
+truncated_text = text[:max_input_length]
 
-# # Summarize the text
-# summary = summarizer(truncated_text, max_length=150, min_length=50, do_sample=False)
+# Summarize the text
+summary = summarizer(truncated_text, max_length=150, min_length=50, do_sample=False)
 
-# # Print the summary
-# st.write(summary[0]['summary_text'])
+# Print the summary
+st.write(summary[0]['summary_text'])
     
