@@ -13,7 +13,7 @@ import numpy as np
 
 # NLP libraries
 import nltk
-nltk.download('all')
+nltk.download('popular')
 from nltk.corpus import stopwords
 from nltk.util import ngrams
 italian_stopwords = stopwords.words('italian')
