@@ -30,7 +30,7 @@ from transformers import pipeline
 from wordcloud import WordCloud
 
 # sentiment analysis for Italian language
-# from sentita import calculate_polarity # need keras 2.15.0 - don't install tensorflow
+from sentita import calculate_polarity # need keras 2.15.0 - don't install tensorflow
 
 st.set_option('deprecation.showPyplotGlobalUse', False) # enable/disable warnings
 
