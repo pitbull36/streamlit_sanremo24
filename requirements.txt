@@ -14,5 +14,4 @@ spacy==3.7.4
 streamlit==1.31.1
 transformers==4.38.1
 wordcloud==1.9.3
-git+https://github.com/pitbull36/streamlit_sanremo24/tree/main/sentita
-
+git+https://github.com/NicGian/SentITA/tree/master/sentita
