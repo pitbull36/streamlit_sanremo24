@@ -86,7 +86,7 @@ safetensors==0.4.2
 scikit-learn==1.4.1.post1
 scipy==1.12.0
 seaborn==0.13.2
-git+https://github.com/NicGian/SentITA/tree/master/sentita
+git+https://github.com/NicGian/SentITA/tree/master/sentita@master
 six==1.16.0
 smart-open==6.4.0
 smmap==5.0.1
