@@ -1,5 +1,5 @@
 keras==2.15.0
-#keras_nightly==3.0.4.dev2024021403
+keras_nightly==3.0.4.dev2024021403
 langdetect==1.0.9
 matplotlib==3.8.3
 nltk==3.8.1
