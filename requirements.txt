@@ -14,4 +14,4 @@ spacy==3.7.4
 streamlit==1.31.1
 transformers==4.38.1
 wordcloud==1.9.3
-git+https://github.com/NicGian/SentITA.git
+git+https://github.com/NicGian/SentITA.git@master
