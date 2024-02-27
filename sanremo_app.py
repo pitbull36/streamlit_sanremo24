@@ -30,7 +30,11 @@ from transformers import pipeline
 from wordcloud import WordCloud
 
 # sentiment analysis for Italian language
-from sentita import calculate_polarity # need keras 2.15.0 - don't install tensorflow
+# from sentita import calculate_polarity
+from italian_sentiment import SentimentAnalyzer
+
+# Initialize the SentimentAnalyzer
+analyzer = SentimentAnalyzer()
 
 st.set_option('deprecation.showPyplotGlobalUse', False) # enable/disable warnings
 
@@ -244,8 +248,11 @@ with col4:
     st.write('Angry icons created by Eucalyp - [Flaticons](https://www.flaticon.com/free-icons/angry)')
 
     query = df.loc[(df["singer"] == singer_filter) & (df["lang"] == "it")]["comment"]
-    results, polarities = calculate_polarity(query)
-    emo_res = pd.DataFrame(polarities, columns=['pos', 'neg'])
+
+    # Predict sentiment for each sentence
+    results = analyzer.predict_sentiment(query)
+
+    emo_res = pd.DataFrame(results, columns=['sentiment','pos', 'neg']);
 
     # check the overall mood and select the correct image
     mood = emo_res["pos"].mean() - emo_res["neg"].mean()                
@@ -258,13 +265,11 @@ with col4:
     ax = plt.gca()
     x_fig, y_fig = ax.transAxes.transform([1.65, 1.65])
 
-
     sns.barplot(emo_res, palette=["#77DD77", "#FF6961"])
     plt.title(f"Overall comments' mood for {df['singer'].iloc[0]}");
     plt.xlabel("Valence")
     plt.ylabel("Sentiment strength")
     plt.ylim(0,1)
-    # plt.figimage(im, xo=460, yo=330)
     plt.figimage(im, x_fig, y_fig)
     st.pyplot(plt.gcf(), clear_figure=True)
 
