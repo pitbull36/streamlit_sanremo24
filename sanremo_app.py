@@ -33,6 +33,8 @@ from wordcloud import WordCloud
 # from sentita import calculate_polarity
 from italian_sentiment import SentimentAnalyzer
 
+TF_USE_LEGACY_KERAS=1
+
 # Initialize the SentimentAnalyzer
 analyzer = SentimentAnalyzer()
 
