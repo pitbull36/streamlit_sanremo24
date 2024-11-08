@@ -59,7 +59,7 @@ def plotFromData(csv):
     # Create stopword list:
     stopwords = set(italian_stopwords)
     stopwords.update(["canzone", "song", "molto","sanremo","festival",title,title.lower()])
-    #stopwords.update(english_stopwords)
+    stopwords.update(english_stopwords)
 
     # Generate a word cloud image
     plt.figure(figsize=(15,8))
@@ -177,7 +177,7 @@ with col1:
     # START PLOTTING
     # Create stopword list:
     stopwords = set(italian_stopwords)
-    #stopwords.update(english_stopwords)
+    stopwords.update(english_stopwords)
     stopwords.update(["canzone", "canzoni", "song", "songs", "festival", "sanremo", "br", \
                       "www", "youtube", "sempre", "mai", "comunque", "quot", "minuto", \
                       "minuti", df["singer"].iloc[0],df["singer"].iloc[0].lower(), *new_stopwords, *singers_names
