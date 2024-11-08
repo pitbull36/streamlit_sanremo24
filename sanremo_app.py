@@ -7,7 +7,7 @@ Date: 25/02/2024
 
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
@@ -38,7 +38,9 @@ TF_USE_LEGACY_KERAS=1
 # Initialize the SentimentAnalyzer
 analyzer = SentimentAnalyzer()
 
-st.set_option('deprecation.showPyplotGlobalUse', False) # enable/disable warnings
+# st.set_option('deprecation.showPyplotGlobalUse', False) # enable/disable warnings
+import matplotlib.pyplot as plt
+plt.switch_backends(backend='Agg')
 
 @st.cache_data
 def plotFromData(csv):
