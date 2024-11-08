@@ -38,7 +38,7 @@ TF_USE_LEGACY_KERAS=1
 # Initialize the SentimentAnalyzer
 analyzer = SentimentAnalyzer()
 
-# st.set_option('deprecation.showPyplotGlobalUse', False) # enable/disable warnings
+st.set_option('deprecation.showPyplotGlobalUse', False) # enable/disable warnings
 # import matplotlib.pyplot as plt
 # plt.switch_backends(backend='Agg')
 
