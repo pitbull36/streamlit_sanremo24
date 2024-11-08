@@ -1,5 +1,5 @@
 git+https://github.com/Pinperepette/italian_sentiment.git
-it-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/it_core_news_sm-3.7.0/it_core_news_sm-3.7.0-py3-none-any.whl#sha256=c6a300c7d7b440cee6a896f648bce744c9f091375dc8d7ff834a8930d59eb4bd
+#it-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/it_core_news_sm-3.7.0/it_core_news_sm-3.7.0-py3-none-any.whl#sha256=c6a300c7d7b440cee6a896f648bce744c9f091375dc8d7ff834a8930d59eb4bd
 tf-keras
 #keras
 #keras_nightly
@@ -13,7 +13,7 @@ plotly
 scikit_learn
 seaborn
 spacy
-it_core_news_sm
+#it_core_news_sm
 streamlit
 transformers
 wordcloud
